@@ -1,0 +1,11 @@
+{
+  "name": "portafolio_static",
+  "version": "0.1.0",
+  "description": "A static website demo",
+  "main": " ",
+  "scripts": {
+    "serve": "http-server ./build/ 8080"
+  },
+  "author": "",
+  "license": "ISC"
+}
