@@ -22,6 +22,9 @@
     {
       "taskName": "build",
       "command": "gulp",
+      "args": [
+        "build"
+      ],
       "isBuildCommand": true
     }
   ]
