@@ -115,16 +115,21 @@ body {
   color: $colorLight;      
   
   
-  @media(orientation: portrait) and (max-width: $breakpointSmall) {
-    height: 100vh;
+  @media(orientation: portrait) and (max-width: $breakPointSmall) {
+    height: 80vh;
   }
 
   @media(min-height: $breakPointSmall) {
-    min-height: 75vh;
+    min-height: 60vh;
+  }
+
+  @media(orientation: landscape) and (min-height: $breakPointSmall) {
+    min-height: 90vh;
   }
   
 
   #menu-text {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,6 +140,7 @@ body {
     h1 {
       font-size: 30px;      
       margin: 0;
+      padding: 0;
 
       @media(min-width: $breakPointSmall) {
         font-size: 46px;      
