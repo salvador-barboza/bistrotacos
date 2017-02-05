@@ -1,18 +1,16 @@
 $openSans: 'Open Sans', sans-serif;
-
 $playFair: 'Playfair Display SC', serif;
+$roboto: 'Roboto', sans-serif;
 
 $colorDark: #3F3F3F;
 $colorLight: #FBFBF2;
 $textColorDark: #000000;
 
+$darkBackground: #37474f;
 $breakPointSmall: 450px;
 
 @mixin high-shadow() {
   box-shadow: 0  2px 2.5px 0 rgba(0, 0, 0, 0.5);
-}
-[cover] {
-  height: 100vh;
 }
 
 [center] {
@@ -21,6 +19,7 @@ $breakPointSmall: 450px;
   justify-content: center;
   align-items: center;
 }
+
 
 
 body, html {
@@ -72,12 +71,17 @@ body {
 }
 
 #masthead {
-  
+  height: 100vh;
+
   background: url('../images/tacos.jpeg');    
   background-position: center; 
   background-size: cover;
   background-blend-mode: darken;
   background-color: rgba(0,0,0,.4);
+
+  @media(min-width: $breakPointSmall) {
+    height: 75vh;
+  }
 
   #masthead-title {    
     padding: 0;
@@ -91,7 +95,8 @@ body {
    #masthead-subtitle {
     margin: 0;
     font-size: 36px;
-    font-family: $openSans;
+    font-family: $roboto;
+    font-weight: 200;
     color: $colorLight;    
   }
   
@@ -106,37 +111,39 @@ body {
 }
 
 #menu {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  background-color: #37474f;        
-  color: $colorLight;
-  height: 100vh;
-  min-height: 700px;
+  background-color: $darkBackground;  
+  color: $colorLight;      
+  
+  
+  @media(orientation: portrait) and (max-width: $breakpointSmall) {
+    height: 100vh;
+  }
 
-  @media(min-width: 800px) {
-    height: 50vh;
-  }      
-;
-
-  #menu-title {
-    z-index: 1;
-    font-size: 2em;
-    @media(min-width: $breakPointSmall) {
-      font-size: 3em;
-        margin: auto;
-      
-    }      
+  @media(min-height: $breakPointSmall) {
+    min-height: 75vh;
   }
   
+
   #menu-text {
-    z-index: 1;
-    font-size:  1em;
-    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    font-size: 20px;      
+    margin: 0 8px;    
+
+    h1 {
+      font-size: 30px;      
+      margin: 0;
+
+      @media(min-width: $breakPointSmall) {
+        font-size: 46px;      
+        padding: 40px;
+      }    
+    }    
 
     @media(min-width: $breakPointSmall) {
-      font-size: 1.4em;
-      margin: auto;
+      font-size: 25px;      
     }    
   }
 
@@ -150,12 +157,11 @@ body {
 
     width: 100%;
     max-width: 900px; 
-    margin: auto;
+    margin: 0 auto;
   }
 
   .menu-item {
     border-radius: 3px;
-
     display: flex;
     flex-direction: column;
 
@@ -187,52 +193,68 @@ body {
 }
 
 
-#place {
-        @include high-shadow();
-
+#about {
+  background-color: $darkBackground;      
+  
+  .card-container {
   width: 100%;
   max-width: 900px; 
-  margin: auto;
-
-  #place-image {
-    width: 100%;
-    min-height: 50vh;
-    background: url('../images/restaurante.jpeg');
-    background-size: cover;    
-    background-position: center;
-
-   @media(min-width: $breakPointSmall) {
-         height: 25vh;
-      background-color: red;
-    }
-  }  
   
-}
-
-#about {
-   width: 100%;
-  max-width: 900px; 
   margin: auto;
+  
   display: flex;
   flex-direction: column;
   align-items: stretch;  
-  height: 75vh;
-  background-color: #37474f;
-  color: $colorLight;
-      @include high-shadow();
+  
+  @include high-shadow();  
+  background-color: #F5F5F5;
+  color: black;
+  
+    #about-image {        
+      background: url('../images/restaurante.jpeg');
+      background-size: cover;    
+      background-position: center;  
+      min-height: 300px;
+    }  
 
-  @media(min-width: $breakPointSmall) {
-    flex-direction: row;
-    height: 25vh;
-  }
+    #about-stack {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 30vh;
 
-  #a {
-    flex: 1 0;
+      @media(max-width: $breakPointSmall) {
+        flex-direction: column;
+      }
+
+      #about-info {
+        padding: 16px;
+        flex: 1 1;
+
+        h2 {
+          color: #757575;
+        }
+
+        p {
+          margin: 0;        
+        }
+      }
+      
+      #about-map  {
+        background: url('../images/mapa.png');
+        background-size: cover;
+        background-position: center;
+        flex: 1 0;
+        min-height: 25vh;      
+      }
+    }
   }
-  #b {
-    background: url('../images/mapa.png');
-    background-size: cover;
-    background-position: center;
-    flex: 1 0;
-  }
+}
+
+footer {
+  background-color: $darkBackground;
+  color: #8a8a8a;
+  padding: 16px;  
+  height: 64px;
+  text-align: center;
 }
