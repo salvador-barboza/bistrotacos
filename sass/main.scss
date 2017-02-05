@@ -10,7 +10,10 @@ $darkBackground: #37474f;
 $breakPointSmall: 450px;
 
 @mixin high-shadow() {
-  box-shadow: 0  2px 2.5px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+}
+@mixin super-shadow() {
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.35);
 }
 
 [center] {
@@ -113,20 +116,16 @@ body {
 #menu {
   background-color: $darkBackground;  
   color: $colorLight;      
+  min-height: 100vh;
+
   
-  
-  @media(orientation: portrait) and (max-width: $breakPointSmall) {
-    height: 80vh;
+  @media(min-width: $breakPointSmall) {
+    padding: 16px;
+  }
+  @media(max-width: $breakPointSmall) {
+    padding-bottom: 32px;
   }
 
-  @media(min-height: $breakPointSmall) {
-    min-height: 60vh;
-  }
-
-  @media(orientation: landscape) and (min-height: $breakPointSmall) {
-    min-height: 90vh;
-  }
-  
 
   #menu-text {
     overflow: hidden;
@@ -135,8 +134,8 @@ body {
     align-items: center;
     
     font-size: 20px;      
-    margin: 0 8px;    
 
+    padding: 16px;
     h1 {
       font-size: 30px;      
       margin: 0;
@@ -160,41 +159,55 @@ body {
     align-items: stretch;
     align-content: stretch;   
     flex-wrap: wrap;
-
-    width: 100%;
+    
     max-width: 900px; 
-    margin: 0 auto;
+    margin: 0 auto;  
+    
   }
 
-  .menu-item {
+  .menu-item {    
+    height: 50vh;
+
     border-radius: 3px;
     display: flex;
     flex-direction: column;
 
-    .menu-item-image {
+    transition: box-shadow 0.2s ease-in-out;
+
+
+    @media(max-width: $breakPointSmall) {
+      margin: 8px;
+      width: 100%;
+    }
+    @media(min-width: $breakPointSmall) {
+      @include high-shadow();      
       flex: 1 0;
+      margin: 8px;              
+    }
+
+    @media(max-width: $breakPointSmall) and (orientation: portrait) {
+      height: 33vh;
+    }
+
+    .menu-item-image {
+      flex: 4 0;
       background: url('../images/tacos2.jpg');    
       background-position: center;
       background-size: cover;            
     }
 
     .menu-item-label {
-      height: 4em;
-      background-color: $colorLight;
-      color: black;
+      background-color: #fafafa;
+      color: #37474f;
+      padding: 8px;      
+      font-family: $roboto;      
+      font-weight: 300;
+      font-size: 25px;
     }
+  }
 
-    @media(max-width: $breakPointSmall) {
-      height: 25vh;
-      width: calc(50% - 8px);
-      margin: 4px;              
-    }
-    @media(min-width: $breakPointSmall) {
-      @include high-shadow();
-      height: 300px;
-      flex: 1 0;
-      margin: 8px;              
-    }
+  .menu-item:hover {
+    @include  super-shadow();
   }
 }
 
@@ -202,6 +215,10 @@ body {
 #about {
   background-color: $darkBackground;      
   
+  @media(min-width: $breakPointSmall) {
+      padding: 16px;
+  }
+
   .card-container {
   width: 100%;
   max-width: 900px; 
@@ -213,6 +230,7 @@ body {
   align-items: stretch;  
   
   @include high-shadow();  
+
   background-color: #F5F5F5;
   color: black;
   
@@ -220,7 +238,7 @@ body {
       background: url('../images/restaurante.jpeg');
       background-size: cover;    
       background-position: center;  
-      min-height: 300px;
+      min-height: 50vh;
     }  
 
     #about-stack {
