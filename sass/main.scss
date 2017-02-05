@@ -6,6 +6,8 @@ $colorDark: #3F3F3F;
 $colorLight: #FBFBF2;
 $textColorDark: #000000;
 
+$breakPointSmall: 450px;
+
 @mixin high-shadow() {
   box-shadow: 0  2px 2.5px 0 rgba(0, 0, 0, 0.5);
 }
@@ -77,7 +79,6 @@ body {
   background-blend-mode: darken;
   background-color: rgba(0,0,0,.4);
 
-  
   #masthead-title {    
     padding: 0;
     font-size: 64px;
@@ -93,131 +94,145 @@ body {
     font-family: $openSans;
     color: $colorLight;    
   }
+  
+  @media(max-width: $breakPointSmall) {
+    #masthead-title {
+      font-size: 40px;      
+    }
+    #masthead-subtitle {
+      font-size: 20px;
+    }
+  }
 }
 
 #menu {
-  // overflow: hidden;
-  // background-color: cadetblue;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #f6f6f6;
+  align-items: left;
+  background-color: #37474f;        
+  color: $colorLight;
+  height: 100vh;
+  min-height: 700px;
+
+  @media(min-width: 800px) {
+    height: 50vh;
+  }      
+;
 
   #menu-title {
     z-index: 1;
+    font-size: 2em;
+    @media(min-width: $breakPointSmall) {
+      font-size: 3em;
+        margin: auto;
+      
+    }      
   }
   
   #menu-text {
     z-index: 1;
+    font-size:  1em;
+    margin-bottom: 16px;
+
+    @media(min-width: $breakPointSmall) {
+      font-size: 1.4em;
+      margin: auto;
+    }    
   }
 
   #menu-container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: stretch;
-    align-content: flex-start;   
+    align-content: stretch;   
     flex-wrap: wrap;
- 
+
+    width: 100%;
+    max-width: 900px; 
+    margin: auto;
   }
 
   .menu-item {
-    @include high-shadow();
     border-radius: 3px;
-    background-color: #fafafa;
-    flex-grow: 1;    
-    margin: 8px 4px 4px 4px;
 
     display: flex;
     flex-direction: column;
 
     .menu-item-image {
-      flex-grow: 1;
+      flex: 1 0;
       background: url('../images/tacos2.jpg');    
       background-position: center;
       background-size: cover;            
     }
 
     .menu-item-label {
-      height: 2em;
+      height: 4em;
+      background-color: $colorLight;
+      color: black;
+    }
+
+    @media(max-width: $breakPointSmall) {
+      height: 25vh;
+      width: calc(50% - 8px);
+      margin: 4px;              
+    }
+    @media(min-width: $breakPointSmall) {
+      @include high-shadow();
+      height: 300px;
+      flex: 1 0;
+      margin: 8px;              
     }
   }
 }
 
-#about {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;  
-  height: 50vh;
 
-  #left {
+#place {
+        @include high-shadow();
+
+  width: 100%;
+  max-width: 900px; 
+  margin: auto;
+
+  #place-image {
+    width: 100%;
+    min-height: 50vh;
+    background: url('../images/restaurante.jpeg');
+    background-size: cover;    
+    background-position: center;
+
+   @media(min-width: $breakPointSmall) {
+         height: 25vh;
+      background-color: red;
+    }
+  }  
+  
+}
+
+#about {
+   width: 100%;
+  max-width: 900px; 
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;  
+  height: 75vh;
+  background-color: #37474f;
+  color: $colorLight;
+      @include high-shadow();
+
+  @media(min-width: $breakPointSmall) {
+    flex-direction: row;
+    height: 25vh;
+  }
+
+  #a {
     flex: 1 0;
   }
-  #right {
+  #b {
     background: url('../images/mapa.png');
     background-size: cover;
     background-position: center;
     flex: 1 0;
   }
 }
-
-@media(orientation: portrait) {
-  [cover] {
-    height: 75vh;
-  }
-}
-
-@media(max-width: 450px) {
-  #masthead {
-    #masthead-title {
-      font-size: 40px;
-    }
-    #masthead-subtitle {
-      font-size: 20px;
-    }
-  }
-  .menu-item {
-    min-width: 40vw;
-    height: 20vh;
-  }
-
-  #about {
-    height: 75vh;
-    flex-direction: column;
-    #left {
-      flex-grow: 0;
-    }
-  }
-}
-
-@media(min-width: 760px) {
-  #menu-container {
-    width: 80%;
-  }
-  
-  @media(orientation: portrait) {    
-    #menu {
-      height: 75vh;
-    }      
-    .menu-item {
-      height: 20vh;
-    }
-  }
-
-  @media(orientation: landscape) {    
-    #menu {
-      height: 75vh;
-    }      
-
-    .menu-item {
-      min-width: 0;
-      height: 30vh;
-    }
-    .menu-item-label {
-      font-size: 2em;      
-    }
-  }
-    
-}
-
-
