@@ -3,6 +3,8 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
+const ghPages = require('gulp-gh-pages');
+
 
 gulp.task('build', () => {
   gulp.src('./sass/main.scss')
@@ -22,6 +24,11 @@ gulp.task('sass', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./build/styles'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('deploy', () => {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('serve', () => {
