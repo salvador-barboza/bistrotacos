@@ -9,6 +9,9 @@ $textColorDark: #000000;
 $darkBackground: #37474f;
 $breakPointSmall: 450px;
 
+$breakPointMedium: 700px;
+
+
 @mixin high-shadow() {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -23,14 +26,13 @@ $breakPointSmall: 450px;
   align-items: center;
 }
 
-
-
 body, html {
   margin: 0;
   padding: 0;
   font-family: $openSans;
   width: 100%;
   overflow-x: hidden;
+  background-color: $darkBackground;
 }
 
 body {
@@ -74,7 +76,7 @@ body {
 }
 
 #masthead {
-  height: 100vh;
+  
 
   background: url('../images/tacos.jpeg');    
   background-position: center; 
@@ -82,8 +84,11 @@ body {
   background-blend-mode: darken;
   background-color: rgba(0,0,0,.4);
 
-  @media(min-width: $breakPointSmall) {
-    height: 75vh;
+  
+  height: 550px;
+  
+  @media (min-width: $breakPointSmall) {
+    height: 700px;
   }
 
   #masthead-title {    
@@ -114,11 +119,8 @@ body {
 }
 
 #menu {
-  background-color: $darkBackground;  
-  color: $colorLight;      
-  min-height: 100vh;
+  color: $colorLight;        
 
-  
   @media(min-width: $breakPointSmall) {
     padding: 16px;
   }
@@ -166,7 +168,8 @@ body {
   }
 
   .menu-item {    
-    height: 50vh;
+    margin: 8px;
+    width: 100%;
 
     border-radius: 3px;
     display: flex;
@@ -175,18 +178,21 @@ body {
     transition: box-shadow 0.2s ease-in-out;
 
 
-    @media(max-width: $breakPointSmall) {
-      margin: 8px;
-      width: 100%;
+    @media(max-width: $breakPointSmall) and (orientation: portrait) {
+      height: 150px;
     }
+
     @media(min-width: $breakPointSmall) {
       @include high-shadow();      
+      
+      height: 200px;
+
       flex: 1 0;
       margin: 8px;              
     }
 
-    @media(max-width: $breakPointSmall) and (orientation: portrait) {
-      height: 33vh;
+    @media(min-width: $breakPointMedium) {
+      height: 350px;      
     }
 
     .menu-item-image {
@@ -211,11 +217,46 @@ body {
   }
 }
 
+#filler {
+  @include  super-shadow();
+  height: 300px;
+  
+  max-width: 900px;  
+  margin: 64px auto;  
+
+
+  background-color: #607d8b;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  // background-blend-mode: darken;
+
+  div {
+    padding: 16px;    
+  }
+
+  h2 {
+    color: #263238;    
+    width: 75%;
+  }
+
+
+  p {
+    font-size: 15px;
+  }
+  
+  @media(min-width: $breakPointMedium) {
+  background-image: url('../images/overlay.svg');
+    
+    p {
+      width: 50%;
+      font-size: 20px;
+    }
+  } 
+
+}
 
 #about {
-  background-color: $darkBackground;      
-  
-  @media(min-width: $breakPointSmall) {
+    @media(min-width: $breakPointSmall) {
       padding: 16px;
   }
 
@@ -273,10 +314,9 @@ body {
       }
     }
   }
-}
+} 
 
 footer {
-  background-color: $darkBackground;
   color: #8a8a8a;
   padding: 16px;  
   height: 64px;
