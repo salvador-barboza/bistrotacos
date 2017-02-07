@@ -297,12 +297,24 @@ body {
         flex: 1 1;
 
         h2 {
+          font-size: 24px;
           color: #757575;
         }
 
         p {
-          margin: 0;        
+          font-size: 18px;
+          margin: 0;              
         }
+
+          @media(min-width: $breakPointSmall) {
+            h2 {
+              font-size: 30px;
+            }
+
+            p {
+            font-size: 20px;
+            }            
+          } 
       }
       
       #about-map  {
