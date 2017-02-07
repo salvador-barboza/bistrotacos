@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="bistro-menu">
+<template>
+	<template is="dom-repeat" items="[[menu]]">
+		<div style$="{{loadImage(item.image)}}"></div>
+		<h1>${{item.price}}</h1>
+	</template>
+</template>
+<script>
+
+Polymer({
+	is: 'bistro-menu',
+	properties: {
+		menu: Object
+	},
+	ready: function() {
+		fetch('../tempApi.json').then(res => {
+			res.json().then(doc => {
+				this.set('menu', doc.menu);
+				console.log(this.menu);
+			});
+		});
+	},
+	loadImage: function(src) {
+		console.log('background: url(\'' + src + '\')');
+		return 'background: url(\'' + src + '\')';
+	}
+});
+</script>
+</dom-module>

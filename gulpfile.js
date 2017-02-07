@@ -7,15 +7,25 @@ const ghPages = require('gulp-gh-pages');
 
 
 gulp.task('build', () => {
-  gulp.src('./sass/main.scss')
+  gulp.src('./sass/**.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./build/styles'));
 
-  gulp.src('./images/**.*')    
+  gulp.src('./images/**.*')
     .pipe(gulp.dest('./build/images'));
-  
-  gulp.src('./views/index.html')    
+
+  gulp.src('./index.html')
     .pipe(gulp.dest('./build/'));
+
+	gulp.src('./fragments/**.html')
+    .pipe(gulp.dest('./build/fragments'));
+
+	gulp.src('./bower_components/**/**')
+	.pipe(gulp.dest('./build/bower_components'));
+
+	gulp.src('./tempApi.json')
+	.pipe(gulp.dest('./build/'));
+
 });
 
 
@@ -31,6 +41,11 @@ gulp.task('deploy', () => {
     .pipe(ghPages());
 });
 
+let buildAndRefresh = function() {
+	gulp.start('build');
+	browserSync.reload();
+}
+
 gulp.task('serve', () => {
   browserSync.init({
         server: "./build",
@@ -38,7 +53,9 @@ gulp.task('serve', () => {
         notify: false
     });
 
-    gulp.watch("./sass/*.scss", ['sass']);
-    gulp.watch("./views/*.html").on('change', browserSync.reload);
+	gulp.watch("./sass/*.scss", ['sass']);
+	gulp.watch("./fragments/**.html").on('change', buildAndRefresh)
+	gulp.watch("./index.html").on('change', buildAndRefresh);
+
 });
 
