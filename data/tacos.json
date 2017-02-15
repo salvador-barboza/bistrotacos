@@ -3,18 +3,34 @@
 	"menu": [
 		{
 			"title": "Pastor",
-			"image": "../images/carne.jpeg",
+			"desc": "Praesent a elit pulvinar, suscipit nisl sed, eleifend dolor.",
 			"price": 35.50
 		},
 		{
 			"title": "Sirloin",
-			"image": "../images/carne.jpeg",
+			"desc": ".Vivamus dictum venenatis aliquet. Proin molestie turpis eros, at.",
 			"price": 55.50
 		},
 		{
 			"title": "Salmon Asado",
-			"image": "../images/carne.jpeg",
+			"desc": "Sed sed sodales nulla, ultrices blandit purus. Aenean blandit.",
 			"price": 75.50
+		},
+			{
+			"title": "Cochinita Pivil Veracruzana",
+			"desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada.",
+			"price": 35.50
+		},
+		{
+			"title": "Piratas de Cordero",
+			"desc": "Aenean nisl est, vulputate sit amet mi sed, posuere.",
+			"price": 100.00
+		},
+		{
+			"title": "Carnitas al Horno",
+			"desc": "Cras suscipit laoreet pulvinar. Ut mollis, diam eu condimentum..",
+			"price": 20.00
 		}
+
 	]
 }

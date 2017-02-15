@@ -30,6 +30,9 @@
 	<bistro-home view="main"></bistro-home>
 	<bistro-menu view="menu" route="{{subroute}}"></bistro-menu>
 </iron-pages>
+<footer>
+	Desarrollado por Prometheo Consulting Group 2017.
+</footer>
 
 </template>
 <script>
@@ -48,7 +51,7 @@
 			if(route.view == "main") {
 				document.body.style.backgroundColor = '#37474f';
 			} else if (route.view == "menu") {
-				document.body.style.backgroundColor = '#80cbc4';
+				document.body.style.backgroundColor = '#ECEFF1';
 			}
 		}
 	});

@@ -4,22 +4,61 @@
 <template>
 <style is="custom-style">
 
+	#menu {
+		/*display: flex;
+		/*flex-direction: column;*/
+		/*justify-content: flex-end;
+		align-items: center;*/
+
+		max-width: 900px;
+		margin: auto;
+
+	}
+	#separator {
+		background-color: #FFAB00;
+		width: 100px;
+		height: 2px;
+		margin: 10px 0;
+	}
 	.card {
 		overflow: hidden;
-		margin: 0;
-		padding: 0;
+		padding: 16px;
 		font-family: 'Roboto', sans-serif;
+		height: 200px;
+		width: 32%;
+		display: inline-block;
 	}
 
 	.title {
+		padding: 16px;
+		color: #304040;
 		font-family: 'Playfair Display SC', serif;
+	}
+
+	.card__title {
+		color: #263238;
+		font-weight: 200;
+		font-size: 24px;
+		display: block;
+	}
+
+	.card__price {
+		color: #263238;
+		font-weight: 400;
+		display: inline-block;
+	}
+	.card__desc {
+		color: #263238;
+		font-weight: 100;
+		display: inline-block;
 	}
 	#tabs {
 		--paper-tabs: {
-				background: #fafafa;
+				background: #37474f;
+				color: white;
 		}
-		--paper-tabs-selection-bar-color: red;
-		--paper-tabs-selection-bar: red;
+		--paper-tabs-selection-bar-color: #fafafa;
+		--paper-tabs-selection-bar:#fafafa;
 		/*vs*/
 	}
 </style>
@@ -39,12 +78,14 @@
 
 	<h1 class="title">[[routeData.selected]]</h1>
 
-	<div class="menu">
+	<div id="menu">
 
 	<template is="dom-repeat" items="[[items]]">
 		<div class="card">
-			<h1 class="card_title">{{item.title}}</h1>
-			<h2>${{item.price}}</h2>
+			<div id="separator">&nbsp;</div>
+			<span class="card__title">{{item.title}}</span>
+			<span class="card__price">${{item.price}}</span>
+			<span class="card__desc">{{item.desc}}</span>
 		</div>
 	</template>
 	</div>
