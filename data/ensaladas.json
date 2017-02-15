@@ -1,0 +1,18 @@
+{
+	"category": "test_category",
+	"menu": [
+		{
+			"title": "Cesar",
+			"price": 35.50
+		},
+		{
+			"title": "Mexicana",
+			"price": 55.50
+		},
+		{
+			"title": "Salmon Asado",
+
+			"price": 75.50
+		}
+	]
+}

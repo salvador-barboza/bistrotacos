@@ -1,30 +1,85 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <dom-module id="bistro-menu">
 <template>
-	<template is="dom-repeat" items="[[menu]]">
-		<div style$="{{loadImage(item.image)}}"></div>
-		<h1>${{item.price}}</h1>
+<style is="custom-style">
+
+	.card {
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	.title {
+		font-family: 'Playfair Display SC', serif;
+	}
+	#tabs {
+		--paper-tabs: {
+				background: #fafafa;
+		}
+		--paper-tabs-selection-bar-color: red;
+		--paper-tabs-selection-bar: red;
+		/*vs*/
+	}
+</style>
+
+<app-route
+    route="{{route}}"
+    pattern="/:selected"
+    data="{{routeData}}"></app-route>
+
+
+	<paper-tabs id="tabs" selected="{{routeData.selected}}"  attr-for-selected="name" noink>
+		<paper-tab name="tacos">Tacos</paper-tab>
+		<paper-tab name="ensaladas">Ensaladas</paper-tab>
+		<paper-tab name="cortes">Cortes</paper-tab>
+		<paper-tab name="postres">Postres</paper-tab>
+	</paper-tabs>
+
+	<h1 class="title">[[routeData.selected]]</h1>
+
+	<div class="menu">
+
+	<template is="dom-repeat" items="[[items]]">
+		<div class="card">
+			<h1 class="card_title">{{item.title}}</h1>
+			<h2>${{item.price}}</h2>
+		</div>
 	</template>
+	</div>
 </template>
 <script>
-
 Polymer({
 	is: 'bistro-menu',
 	properties: {
-		menu: Object
+		items: {
+			type: Array,
+			value: []
+		},
+		routeData: {
+			type: Object,
+			observer: '_setCategory'
+		}
 	},
-	ready: function() {
-		fetch('../tempApi.json').then(res => {
-			res.json().then(doc => {
-				this.set('menu', doc.menu);
-				console.log(this.menu);
-			});
-		});
+
+	_loadItems: function(category) {
+		let req = new XMLHttpRequest();
+
+		req.onerror = err => {console.error(err)};
+		req.onload = () => {
+			let data = JSON.parse(req.responseText);
+			this.set('items', data.menu);
+		}
+
+		req.open('GET', `/data/${category}.json`);
+		req.send();
 	},
-	loadImage: function(src) {
-		console.log('background: url(\'' + src + '\')');
-		return 'background: url(\'' + src + '\')';
+	_setCategory: function(route) {
+		if(!route.selected)
+			this.set('routeData.selected', 'tacos');
+
+		this._loadItems(route.selected);
 	}
 });
 </script>

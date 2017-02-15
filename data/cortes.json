@@ -1,0 +1,17 @@
+{
+	"category": "test_category",
+	"menu": [
+		{
+			"title": "T-bone",
+			"price": 35.50
+		},
+		{
+			"title": "Rib eye",
+			"price": 55.50
+		},
+		{
+			"title": "Costilla asada con sasón de la casa",
+			"price": 75.50
+		}
+	]
+}

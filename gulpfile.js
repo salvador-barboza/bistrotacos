@@ -20,6 +20,10 @@ gulp.task('build', () => {
 	gulp.src('./fragments/**.html')
     .pipe(gulp.dest('./build/fragments'));
 
+	gulp.src('./data/**.json')
+    .pipe(gulp.dest('./build/data'));
+
+
 	gulp.src('./bower_components/**/**')
 	.pipe(gulp.dest('./build/bower_components'));
 

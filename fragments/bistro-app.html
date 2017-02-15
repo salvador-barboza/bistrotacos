@@ -1,0 +1,56 @@
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Cookie|Open+Sans:300|Playfair+Display+SC" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" defer>
+
+<link href="../styles/main.css" rel="stylesheet">
+
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../fragments/bistro-home.html">
+<link rel="import" href="../fragments/bistro-menu.html">
+
+
+<dom-module id="bistro-app">
+<template>
+
+<app-location route="{{route}}"></app-location>
+<app-route
+    route="{{route}}"
+    pattern="/:view"
+    data="{{routeData}}"
+		tail="{{subroute}}"></app-route>
+
+<div id="nav">
+  <a href="/main"><div id="nav-logo">Bistrotacos</div></a>
+  <a href="/menu/"><div class="nav-button">Menu</div></a>
+</div>
+
+<iron-pages selected="{{routeData.view}}" attr-for-selected="view">
+	<bistro-home view="main"></bistro-home>
+	<bistro-menu view="menu" route="{{subroute}}"></bistro-menu>
+</iron-pages>
+
+</template>
+<script>
+	Polymer({
+		is: 'bistro-app',
+		properties: {
+			routeData: {
+				type: Object,
+				observer: '_routeChanged'
+			}
+		},
+		_routeChanged: function(route) {
+			if(route.view == "")
+				this.set('routeData.view', 'main');
+
+			if(route.view == "main") {
+				document.body.style.backgroundColor = '#37474f';
+			} else if (route.view == "menu") {
+				document.body.style.backgroundColor = '#80cbc4';
+			}
+		}
+	});
+</script>
+</dom-module>

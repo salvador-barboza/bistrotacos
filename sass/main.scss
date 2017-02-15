@@ -37,6 +37,14 @@ body, html {
 
 body {
   scroll-behavior: smooth;
+	padding-top: 64px;
+	transition: background-color .7s;
+	height: 100vh;
+}
+
+a:visited, a:link {
+	text-decoration: none;
+	color: $colorDark;
 }
 
 #nav {
@@ -53,17 +61,17 @@ body {
   position: fixed;
   top: 0;
 
-  background-color: $colorLight; 
+  background-color: $colorLight;
   color: $textColorDark;
 
-  
+
 
   #nav-logo {
     margin-left: 16px;
 
     flex-grow: 3;
     flex-shrink: 0;
-    
+
     font-family: $playFair;
     font-weight: 700;
 
@@ -76,41 +84,41 @@ body {
 }
 
 #masthead {
-  
 
-  background: url('../images/tacos.jpeg');    
-  background-position: center; 
+
+  background: url('../images/tacos.jpeg');
+  background-position: center;
   background-size: cover;
   background-blend-mode: darken;
   background-color: rgba(0,0,0,.4);
 
-  
+
   height: 550px;
-  
+
   @media (min-width: $breakPointSmall) {
     height: 700px;
   }
 
-  #masthead-title {    
+  #masthead-title {
     padding: 0;
     font-size: 64px;
     font-family: $playFair;
     font-weight: 700;
 
-    color: $colorLight;    
+    color: $colorLight;
   }
-   
+
    #masthead-subtitle {
     margin: 0;
     font-size: 36px;
     font-family: $roboto;
     font-weight: 200;
-    color: $colorLight;    
+    color: $colorLight;
   }
-  
+
   @media(max-width: $breakPointSmall) {
     #masthead-title {
-      font-size: 40px;      
+      font-size: 40px;
     }
     #masthead-subtitle {
       font-size: 20px;
@@ -119,7 +127,7 @@ body {
 }
 
 #menu {
-  color: $colorLight;        
+  color: $colorLight;
 
   @media(min-width: $breakPointSmall) {
     padding: 16px;
@@ -134,24 +142,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    font-size: 20px;      
+
+    font-size: 20px;
 
     padding: 16px;
     h1 {
-      font-size: 30px;      
+      font-size: 30px;
       margin: 0;
       padding: 0;
 
       @media(min-width: $breakPointSmall) {
-        font-size: 46px;      
+        font-size: 46px;
         padding: 40px;
-      }    
-    }    
+      }
+    }
 
     @media(min-width: $breakPointSmall) {
-      font-size: 25px;      
-    }    
+      font-size: 25px;
+    }
   }
 
   #menu-container {
@@ -159,15 +167,15 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: stretch;
-    align-content: stretch;   
+    align-content: stretch;
     flex-wrap: wrap;
-    
-    max-width: 900px; 
-    margin: 0 auto;  
-    
+
+    max-width: 900px;
+    margin: 0 auto;
+
   }
 
-  .menu-item {    
+  .menu-item {
     margin: 8px;
     width: 100%;
 
@@ -183,30 +191,30 @@ body {
     }
 
     @media(min-width: $breakPointSmall) {
-      @include high-shadow();      
-      
+      @include high-shadow();
+
       height: 200px;
 
       flex: 1 0;
-      margin: 8px;              
+      margin: 8px;
     }
 
     @media(min-width: $breakPointMedium) {
-      height: 350px;      
+      height: 350px;
     }
 
     .menu-item-image {
       flex: 4 0;
-      background: url('../images/tacos2.jpg');    
+      background: url('../images/tacos2.jpg');
       background-position: center;
-      background-size: cover;            
+      background-size: cover;
     }
 
     .menu-item-label {
       background-color: #fafafa;
       color: #37474f;
-      padding: 8px;      
-      font-family: $roboto;      
+      padding: 8px;
+      font-family: $roboto;
       font-weight: 300;
       font-size: 25px;
     }
@@ -220,9 +228,9 @@ body {
 #filler {
   @include  super-shadow();
   height: 300px;
-  
-  max-width: 900px;  
-  margin: 64px auto;  
+
+  max-width: 900px;
+  margin: 64px auto;
 
 
   background-color: #607d8b;
@@ -231,11 +239,11 @@ body {
   // background-blend-mode: darken;
 
   div {
-    padding: 16px;    
+    padding: 16px;
   }
 
   h2 {
-    color: #263238;    
+    color: #263238;
     width: 75%;
   }
 
@@ -243,15 +251,15 @@ body {
   p {
     font-size: 15px;
   }
-  
+
   @media(min-width: $breakPointMedium) {
   background-image: url('../images/overlay.svg');
-    
+
     p {
       width: 50%;
       font-size: 20px;
     }
-  } 
+  }
 
 }
 
@@ -262,25 +270,25 @@ body {
 
   .card-container {
   width: 100%;
-  max-width: 900px; 
-  
+  max-width: 900px;
+
   margin: auto;
-  
+
   display: flex;
   flex-direction: column;
-  align-items: stretch;  
-  
-  @include high-shadow();  
+  align-items: stretch;
+
+  @include high-shadow();
 
   background-color: #F5F5F5;
   color: black;
-  
-    #about-image {        
+
+    #about-image {
       background: url('../images/restaurante.jpeg');
-      background-size: cover;    
-      background-position: center;  
+      background-size: cover;
+      background-position: center;
       min-height: 50vh;
-    }  
+    }
 
     #about-stack {
       display: flex;
@@ -303,7 +311,7 @@ body {
 
         p {
           font-size: 18px;
-          margin: 0;              
+          margin: 0;
         }
 
           @media(min-width: $breakPointSmall) {
@@ -313,24 +321,24 @@ body {
 
             p {
             font-size: 20px;
-            }            
-          } 
+            }
+          }
       }
-      
+
       #about-map  {
         background: url('../images/mapa.png');
         background-size: cover;
         background-position: center;
         flex: 1 0;
-        min-height: 25vh;      
+        min-height: 25vh;
       }
     }
   }
-} 
+}
 
 footer {
   color: #8a8a8a;
-  padding: 16px;  
+  padding: 16px;
   height: 64px;
   text-align: center;
 }

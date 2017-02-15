@@ -1,0 +1,17 @@
+{
+	"category": "test_category",
+	"menu": [
+		{
+			"title": "Creme broule",
+			"price": 35.50
+		},
+		{
+			"title": "Orejas de Hojaldre",
+			"price": 55.50
+		},
+		{
+			"title": "Conchas artesanales",
+			"price": 75.50
+		}
+	]
+}

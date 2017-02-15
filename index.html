@@ -2,30 +2,15 @@
 <html>
 <head>
 <title>Test</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Cookie|Open+Sans:300|Playfair+Display+SC" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" defer>
-
-<link href="./styles/main.css" rel="stylesheet">
-
 <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
 
-<link rel="import" href="../fragments/bistro-home.html">
-<link rel="import" href="../fragments/bistro-menu.html">
-
+<link rel="import" href="/fragments/bistro-app.html" async>
 </head>
 <body>
-<!--
-<div id="nav">
-  <div id="nav-logo">Bistrotacos</div>
-  <div class="nav-button">Menu</div>
-</div>-->
-	<!--<bistro-home></bistro-home>		-->
-	<bistro-menu></bistro-menu>
-<footer>
-  Desarrollado por Prometheo Consulting Group 2017.
-</footer>
+<bistro-app id="app"></bistro-app>
+<script>
+	let app = document.querySelector('#app');
+</script>
 </body>
 </html>
