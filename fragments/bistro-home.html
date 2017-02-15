@@ -1,11 +1,248 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-
 <dom-module id="bistro-home">
-	<template>
+<template>
+<style is="custom-style">
+
+#masthead {
+	background: url('../images/tacos.jpeg');
+	background-position: center;
+	background-size: cover;
+	background-blend-mode: darken;
+	background-color: rgba(0, 0, 0, .4);
+	height: 550px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#masthead-title {
+	@apply(--playfair-font);
+	padding: 0;
+	font-size: 40px;
+	font-weight: 700;
+	color: var(--font-color-light);
+}
+
+#masthead-subtitle {
+	@apply(--font-roboto);
+	margin: 0;
+	font-size: 20px;
+	font-weight: 200;
+	color: var(--font-color-light);
+}
+
+#menu {
+	color: var(--font-color-light);
+	padding-bottom: 32px;
+}
+
+#menu-text {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 20px;
+	padding: 16px;
+}
+
+#menu h1 {
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+}
+
+#menu-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+	flex-wrap: wrap;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.menu-item {
+	@apply(--high-shadow);
+	margin: 8px;
+	width: 100%;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.menu-item-image {
+	flex: 4 0;
+	background: url('../images/tacos2.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+.menu-item-label {
+	background-color: #fafafa;
+	color: var(--background-color-dark);
+	padding: 8px;
+	@apply(--font-roboto);
+	font-weight: 300;
+	font-size: 25px;
+}
+
+.menu-item:hover {
+	@apply(--super-shadow);
+}
+
+#filler {
+	@apply(--super-shadow);
+  height: 300px;
+
+  max-width: 900px;
+  margin: 64px auto;
+
+
+  background-color: #607d8b;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+#filler div {
+	padding: 16px;
+}
+
+#filler h2 {
+	color: #263238;
+	width: 75%;
+}
+#filler p {
+	font-size: 15px;
+}
+
+
+.card-container {
+	@apply(--high-shadow);
+  width: 100%;
+  max-width: 900px;
+
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  background-color: #F5F5F5;
+  color: black;
+}
+
+#about {
+	height: 300px;
+}
+#about-image {
+	background: url('../images/restaurante.jpeg');
+	background-size: cover;
+	background-position: center;
+	height: 50%;
+}
+
+#about-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	height: 50%;
+}
+
+#about-info {
+	padding: 16px;
+	flex: 1 1;
+}
+#about-info h2 {
+	font-size: 24px;
+	color: #757575;
+}
+
+#about-info p {
+	font-size: 18px;
+	margin: 0;
+}
+#about-map  {
+	background: url('../images/mapa.png');
+	background-size: cover;
+	background-position: center;
+	flex: 1 0;
+	height: 50%;
+}
+
+@media (min-width: 450px) {
+	#masthead {
+		height: 700px;
+	}
+	#masthead-title {
+		font-size: 64px;
+	}
+	#masthead-subtitle {
+		font-size: 36px;
+	}
+	#menu {
+		padding: 16px;
+	}
+	#menu-text h1 {
+		font-size: 46px;
+		padding: 40px;
+	}
+
+	#menu-text {
+		font-size: 25px;
+	}
+
+	.menu-item {
+		height: 200px;
+		flex: 1 0;
+		margin: 8px;
+	}
+
+	 #filler {
+		background-image: url('../images/overlay.svg');
+
+	 }
+	 #filler p {
+		width: 50%;
+		font-size: 20px;
+	}
+
+	#about {
+		padding: 16px;
+		height: 500px;
+	}
+
+	#about-stack {
+		flex-direction: row;
+		height: 400px;
+	}
+
+	#about-stack 	 h2 {
+		font-size: 30px;
+	}
+
+	#about-stack  p {
+		font-size: 20px;
+	}
+}
+
+a:visited, a:link {
+		text-decoration: none;
+		color: var(--font-color-dark);
+}
+@media(max-width: 450px) and (orientation: portrait) {
+	.menu-item{ height: 150px;}
+}
+@media(min-width: 800px) {
+	.menu-item{height: 350px;}
+}
+</style>
 		<section id="masthead" center>
-			<h1 id="masthead-title">Bistrotacos</h1>
-			<h3 id="masthead-subtitle">Una experiencia Gastronomica</h3>
-		</section>
+		<h1 id="masthead-title">Bistrotacos</h1>
+		<h3 id="masthead-subtitle">Una experiencia Gastronomica</h3>
+	</section>
 		<section id="menu">
 			<div id="menu-text">
 				<h1>Conoce nuestro menu</h1>
@@ -66,5 +303,6 @@
 		Polymer({
 			is: 'bistro-home'
 		});
+
 	</script>
 </dom-module>

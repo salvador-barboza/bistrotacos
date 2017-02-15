@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Cookie|Open+Sans:300|Playfair+Display+SC" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" defer>
 
-<link href="../styles/main.css" rel="stylesheet">
+<!--<link href="../styles/main.css" rel="stylesheet">-->
 
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
@@ -9,11 +9,63 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../fragments/bistro-home.html">
 <link rel="import" href="../fragments/bistro-menu.html">
-
+<link rel="import" href="../fragments/shared-styles.html">
 
 <dom-module id="bistro-app">
 <template>
+<style is="custom-style">
+:host {
+	@apply(--plain-anchor);
+}
 
+#nav {
+	@apply(--high-shadow);
+	background-color: var(--background-color-light);
+	color: var(--font-color-dark);
+
+	height: 64px;
+	width: 100%;
+	z-index: 2;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	position: fixed;
+	top: 0;
+}
+
+#nav-logo {
+	padding: 0 16px;
+
+	flex-grow: 3;
+	flex-shrink: 0;
+
+	font-family: var(--playfair-font);
+	font-weight: 700;
+
+}
+
+.nav-button {
+	padding: 0 16px;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+
+footer {
+  color: #8a8a8a;
+  padding: 16px;
+  height: 64px;
+  text-align: center;
+}
+
+a:visited, a:link {
+		text-decoration: none;
+		color: var(--font-color-dark);
+}
+
+</style>
 <app-location route="{{route}}"></app-location>
 <app-route
     route="{{route}}"
@@ -51,7 +103,7 @@
 			if(route.view == "main") {
 				document.body.style.backgroundColor = '#37474f';
 			} else if (route.view == "menu") {
-				document.body.style.backgroundColor = '#ECEFF1';
+				document.body.style.backgroundColor = '#E6E1D7';
 			}
 		}
 	});

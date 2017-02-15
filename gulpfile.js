@@ -7,14 +7,11 @@ const ghPages = require('gulp-gh-pages');
 
 
 gulp.task('build', () => {
-  gulp.src('./sass/**.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./build/styles'));
 
   gulp.src('./images/**.*')
     .pipe(gulp.dest('./build/images'));
 
-  gulp.src('./index.html')
+ 	 gulp.src('./index.html')
     .pipe(gulp.dest('./build/'));
 
 	gulp.src('./fragments/**.html')
@@ -27,18 +24,8 @@ gulp.task('build', () => {
 	gulp.src('./bower_components/**/**')
 	.pipe(gulp.dest('./build/bower_components'));
 
-	gulp.src('./tempApi.json')
-	.pipe(gulp.dest('./build/'));
-
 });
 
-
-gulp.task('sass', function() {
-    return gulp.src('./sass/main.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./build/styles'))
-    .pipe(browserSync.stream());
-});
 
 gulp.task('deploy', () => {
   return gulp.src('./build/**/*')
@@ -57,7 +44,6 @@ gulp.task('serve', () => {
         notify: false
     });
 
-	gulp.watch("./sass/*.scss", ['sass']);
 	gulp.watch("./fragments/**.html").on('change', buildAndRefresh)
 	gulp.watch("./index.html").on('change', buildAndRefresh);
 
