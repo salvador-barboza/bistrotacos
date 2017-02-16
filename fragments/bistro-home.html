@@ -123,6 +123,7 @@
 	@apply(--high-shadow);
   width: 100%;
   max-width: 900px;
+	height: 500px;
 
   margin: auto;
 
@@ -134,26 +135,22 @@
   color: black;
 }
 
-#about {
-	height: 300px;
-}
 #about-image {
 	background: url('../images/restaurante.jpeg');
 	background-size: cover;
 	background-position: center;
-	height: 50%;
+	flex: 1 1;
 }
 
 #about-stack {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	height: 50%;
+	flex: 1 1;
 }
 
 #about-info {
 	padding: 16px;
-	flex: 1 1;
 }
 #about-info h2 {
 	font-size: 24px;
@@ -169,7 +166,7 @@
 	background-size: cover;
 	background-position: center;
 	flex: 1 0;
-	height: 50%;
+	min-height: 100px;
 }
 
 @media (min-width: 450px) {
@@ -209,14 +206,11 @@
 		font-size: 20px;
 	}
 
-	#about {
-		padding: 16px;
-		height: 500px;
+	.card-container {
+		height: 600px;
 	}
-
 	#about-stack {
 		flex-direction: row;
-		height: 400px;
 	}
 
 	#about-stack 	 h2 {
@@ -225,6 +219,12 @@
 
 	#about-stack  p {
 		font-size: 20px;
+	}
+	#about-info {
+		flex: 1 1;
+	}
+	#about-image {
+		flex: 1 0;
 	}
 }
 
@@ -255,20 +255,20 @@ a:visited, a:link {
 						<span>Tacos</span>
 					</div>
 				</a>
-				<a href="/menu/ensaladas/" class="menu-item">
-					<div class="menu-item-image" style="background-image: url('./images/ensalada.jpeg">&nbsp;</div>
+				<a href="/menu/ensaladas/" class="menu-item" id="ensalada">
+					<div class="menu-item-image" style="background-image: url('../images/ensalada.jpeg');">&nbsp;</div>
 					<div class="menu-item-label">
 						<span>Ensaladas</span>
 					</div>
 				</a>
 				<a href="/menu/cortes/" class="menu-item">
-					<div class="menu-item-image" style="background-image: url('./images/carne.jpeg">&nbsp;</div>
+					<div class="menu-item-image" style="background-image: url('../images/carne.jpeg')">&nbsp;</div>
 					<div class="menu-item-label">
 						<span>Cortes</span>
 					</div>
 				</a>
 				<a href="/menu/postres/" class="menu-item">
-					<div class="menu-item-image" style="background-image: url('./images/pan.jpeg">&nbsp;</div>
+					<div class="menu-item-image" style="background-image: url('../images/pan.jpeg')">&nbsp;</div>
 					<div class="menu-item-label">
 						<span>Postres</span>
 					</div>

@@ -4,9 +4,19 @@
 <template>
 <style is="custom-style">
 
+	:host {
+		display: block;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+	paper-tabs {
+		flex-shrink: 0;
+	}
 	#menu {
 		max-width: 900px;
 		margin: auto;
+		overflow-y: scroll;
 	}
 
 	.title {
@@ -22,12 +32,13 @@
 		margin: 10px 0;
 	}
 	.card {
-		/*overflow: hidden;*/
+		overflow: hidden;
+		display: inline-block;
 		padding: 16px;
 		font-family: 'Roboto', sans-serif;
-		height: 200px;
-		width: 32%;
-		display: inline-block;
+		height: 250px;
+		width: 45%;
+		box-sizing: border-box;
 	}
 
 	.card__title {
@@ -35,6 +46,7 @@
 		font-weight: 200;
 		font-size: 24px;
 		display: block;
+		margin: 0;
 	}
 
 	.card__price {
@@ -57,6 +69,12 @@
 		--paper-tabs-selection-bar:#F9794F;
 		/*vs*/
 	}
+
+	@media(min-width: 450px) {
+		.card {
+			width: 31%;
+		}
+	}
 </style>
 
 <app-route
@@ -75,6 +93,7 @@
 	<h1 class="title">[[routeData.selected]]</h1>
 
 	<div id="menu">
+		&nbsp;
 
 	<template is="dom-repeat" items="[[items]]">
 		<div class="card">
