@@ -3,15 +3,17 @@
 	"menu": [
 		{
 			"title": "Cesar",
+			"desc": "Maecenas vulputate sollicitudin finibus. Nullam a diam sed ligula.",
 			"price": 35.50
 		},
 		{
 			"title": "Mexicana",
+			"desc": "Sed ornare finibus augue non varius. Curabitur dui mauris.",
 			"price": 55.50
 		},
 		{
 			"title": "Salmon Asado",
-
+			"desc": "Etiam molestie erat purus, ac imperdiet dolor pellentesque vel.",
 			"price": 75.50
 		}
 	]

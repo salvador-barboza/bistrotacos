@@ -30,6 +30,16 @@
 			"title": "Carnitas al Horno",
 			"desc": "Cras suscipit laoreet pulvinar. Ut mollis, diam eu condimentum..",
 			"price": 20.00
+		},
+			{
+			"title": "Cochinita Pivil Veracruzana",
+			"desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada.",
+			"price": 35.50
+		},
+		{
+			"title": "Piratas de Cordero",
+			"desc": "Aenean nisl est, vulputate sit amet mi sed, posuere.",
+			"price": 100.00
 		}
 
 	]

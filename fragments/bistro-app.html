@@ -16,6 +16,7 @@
 <style is="custom-style">
 :host {
 	@apply(--plain-anchor);
+
 }
 
 #nav {
@@ -67,7 +68,6 @@ a:visited, a:link {
 
 iron-pages {
 	height: 100%;
-	overflow-y: scroll;
 }
 
 </style>
@@ -87,9 +87,9 @@ iron-pages {
 	<bistro-home view="main"></bistro-home>
 	<bistro-menu view="menu" route="{{subroute}}"></bistro-menu>
 </iron-pages>
-<footer>
+<!--<footer>
 	Desarrollado por Prometheo Consulting Group 2017.
-</footer>
+</footer>-->
 
 </template>
 <script>

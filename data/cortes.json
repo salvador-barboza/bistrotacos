@@ -3,14 +3,17 @@
 	"menu": [
 		{
 			"title": "T-bone",
+			"desc": "Proin in pellentesque magna, a venenatis lectus. Pellentesque vulputate.",
 			"price": 35.50
 		},
 		{
 			"title": "Rib eye",
+			"desc": "Duis sed mi elit. Cras lacus nisi, auctor id.",
 			"price": 55.50
 		},
 		{
 			"title": "Costilla asada con sasón de la casa",
+			"desc": "Ut id accumsan nibh. Cras scelerisque felis velit, ac.",
 			"price": 75.50
 		}
 	]

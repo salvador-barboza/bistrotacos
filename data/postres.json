@@ -3,14 +3,17 @@
 	"menu": [
 		{
 			"title": "Creme broule",
+			"desc": "Aliquam vehicula lacus eget tempus rutrum. Lorem ipsum dolor.",
 			"price": 35.50
 		},
 		{
 			"title": "Orejas de Hojaldre",
+			"desc": "Phasellus ut elementum massa. Suspendisse potenti. Sed id aliquet.",
 			"price": 55.50
 		},
 		{
 			"title": "Conchas artesanales",
+			"desc": "Ut lectus felis, scelerisque quis dui ut, condimentum posuere.",
 			"price": 75.50
 		}
 	]

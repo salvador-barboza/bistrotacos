@@ -15,8 +15,10 @@
 	}
 	#menu {
 		max-width: 900px;
-		margin: auto;
+		width: 100%;
+		margin: 0 auto;
 		overflow-y: scroll;
+		background-color: transparent;
 	}
 
 	.title {
@@ -36,8 +38,8 @@
 		display: inline-block;
 		padding: 16px;
 		font-family: 'Roboto', sans-serif;
-		height: 250px;
-		width: 45%;
+		height: 150px;
+		width: 100%;
 		box-sizing: border-box;
 	}
 
@@ -69,10 +71,15 @@
 		--paper-tabs-selection-bar:#F9794F;
 		/*vs*/
 	}
-
+	@media(min-width: 412px) {
+		.card {
+			width: 45%;
+			height: 250px;
+		}
 	@media(min-width: 450px) {
 		.card {
 			width: 31%;
+			height: 250px;
 		}
 	}
 </style>
@@ -90,11 +97,8 @@
 		<paper-tab name="postres">Postres</paper-tab>
 	</paper-tabs>
 
-	<h1 class="title">[[routeData.selected]]</h1>
 
 	<div id="menu">
-		&nbsp;
-
 	<template is="dom-repeat" items="[[items]]">
 		<div class="card">
 			<div class="card__separator">&nbsp;</div>
